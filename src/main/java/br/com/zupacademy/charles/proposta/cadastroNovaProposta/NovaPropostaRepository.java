@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface NovaPropostaRepository extends JpaRepository<NovaProposta, Long> {
+    boolean existsByDocumento(String documento);
 }

@@ -26,7 +26,6 @@ public class NovaPropostaRequestDto {
     @NotBlank
     private String email;
     @NotBlank
-    @UniqueValue(fieldName = "documento", domainClass = NovaProposta.class)
     @CPF(groups = Cpf.class)
     @CNPJ(groups = Cnpj.class)
     private String documento;
