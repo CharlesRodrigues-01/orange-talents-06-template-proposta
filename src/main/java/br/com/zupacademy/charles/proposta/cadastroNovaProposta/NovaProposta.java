@@ -2,6 +2,7 @@ package br.com.zupacademy.charles.proposta.cadastroNovaProposta;
 
 import br.com.zupacademy.charles.proposta.cadastroNovaProposta.analise.StatusAnaliseRequest;
 import br.com.zupacademy.charles.proposta.cadastroNovaProposta.analise.StatusAnaliseResponse;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.Cartao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,9 +34,10 @@ public class NovaProposta {
     @NotNull
     @Column(nullable = false)
     private BigDecimal salario;
-
     @Enumerated(EnumType.STRING)
     private StatusProposta statusProposta;
+    @OneToOne
+    private Cartao cartao;
 
     @Deprecated
     public NovaProposta(){}
@@ -68,6 +70,8 @@ public class NovaProposta {
 
     public StatusProposta getStatusProposta() { return statusProposta; }
 
+    public Cartao getCartao() { return cartao; }
+
     public void alteraStatusProposta(StatusProposta statusProposta) {
         this.statusProposta = statusProposta;
     }
@@ -86,4 +90,9 @@ public class NovaProposta {
         logger.info("Retornando status " + this.statusProposta);
         return new StatusPropostaResponse(this.statusProposta);
     }
+
+    public void cartaoCriado(Cartao cartao) {
+        this.cartao = cartao;
+    }
+
 }
