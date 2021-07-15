@@ -1,5 +1,10 @@
-package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta;
+package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao;
 
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.carteiraDigital.CarteiraDigitalResponse;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.parcela.ParcelaResponse;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.vencimento.VencimentoResponse;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.avisos.AvisosResponse;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio.BloqueioResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

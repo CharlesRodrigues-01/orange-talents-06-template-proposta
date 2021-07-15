@@ -1,4 +1,4 @@
-package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta;
+package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.renegociacao;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

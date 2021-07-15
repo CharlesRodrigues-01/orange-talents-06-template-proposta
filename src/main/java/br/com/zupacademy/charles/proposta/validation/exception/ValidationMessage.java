@@ -1,4 +1,4 @@
-package br.com.zupacademy.charles.proposta.validation;
+package br.com.zupacademy.charles.proposta.validation.exception;
 
 public class ValidationMessage {
 

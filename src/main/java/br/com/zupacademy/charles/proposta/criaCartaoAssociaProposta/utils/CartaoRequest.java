@@ -1,4 +1,4 @@
-package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta;
+package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils;
 
 import br.com.zupacademy.charles.proposta.cadastroNovaProposta.NovaProposta;
 import br.com.zupacademy.charles.proposta.cadastroNovaProposta.NovaPropostaRepository;

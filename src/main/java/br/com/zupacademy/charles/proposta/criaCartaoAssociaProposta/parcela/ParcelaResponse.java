@@ -1,4 +1,6 @@
-package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta;
+package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.parcela;
+
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.parcela.Parcela;
 
 import java.math.BigDecimal;
 

@@ -1,4 +1,6 @@
-package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta;
+package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio;
+
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio.Bloqueio;
 
 import javax.persistence.Id;
 import java.time.LocalDateTime;

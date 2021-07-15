@@ -1,4 +1,4 @@
-package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta;
+package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.vencimento;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

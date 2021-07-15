@@ -1,4 +1,6 @@
-package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta;
+package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.carteiraDigital;
+
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.carteiraDigital.CarteiraDigital;
 
 import java.time.LocalDateTime;
 

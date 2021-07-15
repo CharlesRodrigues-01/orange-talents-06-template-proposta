@@ -1,4 +1,6 @@
-package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta;
+package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.vencimento;
+
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.vencimento.Vencimento;
 
 import java.time.LocalDateTime;
 

@@ -1,6 +1,16 @@
-package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta;
+package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao;
 
 import br.com.zupacademy.charles.proposta.cadastroNovaProposta.NovaProposta;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.avisos.Avisos;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.avisos.AvisosResponse;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio.Bloqueio;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio.BloqueioResponse;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.carteiraDigital.CarteiraDigital;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.carteiraDigital.CarteiraDigitalResponse;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.parcela.Parcela;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.parcela.ParcelaResponse;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.vencimento.Vencimento;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.vencimento.VencimentoResponse;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

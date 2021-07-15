@@ -1,5 +1,6 @@
-package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta;
+package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio;
 
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.Cartao;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;

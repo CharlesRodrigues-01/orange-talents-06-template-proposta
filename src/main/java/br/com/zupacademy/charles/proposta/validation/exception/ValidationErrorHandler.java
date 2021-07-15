@@ -1,5 +1,6 @@
-package br.com.zupacademy.charles.proposta.validation;
+package br.com.zupacademy.charles.proposta.validation.exception;
 
+import br.com.zupacademy.charles.proposta.validation.exception.ValidationMessage;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;

@@ -1,7 +1,10 @@
-package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta;
+package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils;
 
 import br.com.zupacademy.charles.proposta.cadastroNovaProposta.NovaProposta;
 import br.com.zupacademy.charles.proposta.cadastroNovaProposta.NovaPropostaRepository;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.Cartao;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.CartaoRepository;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.CartaoResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

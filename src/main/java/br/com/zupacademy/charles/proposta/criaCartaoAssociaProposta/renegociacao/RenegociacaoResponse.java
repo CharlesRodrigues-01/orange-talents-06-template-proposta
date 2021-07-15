@@ -1,4 +1,4 @@
-package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta;
+package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.renegociacao;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

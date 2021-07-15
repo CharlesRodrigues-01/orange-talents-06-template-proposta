@@ -2,7 +2,7 @@ package br.com.zupacademy.charles.proposta.cadastroNovaProposta;
 
 import br.com.zupacademy.charles.proposta.cadastroNovaProposta.analise.StatusAnaliseRequest;
 import br.com.zupacademy.charles.proposta.cadastroNovaProposta.analise.StatusAnaliseResponse;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.Cartao;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.Cartao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
