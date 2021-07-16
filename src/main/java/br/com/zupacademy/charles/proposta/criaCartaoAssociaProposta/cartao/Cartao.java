@@ -1,5 +1,6 @@
 package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao;
 
+import br.com.zupacademy.charles.proposta.cadastroBiometria.Biometria;
 import br.com.zupacademy.charles.proposta.cadastroNovaProposta.NovaProposta;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.avisos.Avisos;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.avisos.AvisosResponse;
@@ -28,9 +29,9 @@ public class Cartao {
     @Id
     @NotBlank
     private String id;
-    @NotNull
+    @Column(nullable = false)
     private LocalDateTime emitidoEm;
-    @NotBlank
+    @Column(nullable = false)
     private String titular;
     @OneToMany(mappedBy = "cartao", cascade = CascadeType.PERSIST)
     private Set<Bloqueio> bloqueios = new HashSet<>();
@@ -40,7 +41,7 @@ public class Cartao {
     private Set<CarteiraDigital> carteiras = new HashSet<>();
     @OneToMany(mappedBy = "cartao", cascade = CascadeType.PERSIST)
     private Set<Parcela> parcelas = new HashSet<>();
-    @NotNull
+    @Column(nullable = false)
     private BigDecimal limite;
 
     @Embedded
