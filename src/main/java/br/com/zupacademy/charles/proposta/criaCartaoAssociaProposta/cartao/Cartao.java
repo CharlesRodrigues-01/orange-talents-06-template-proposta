@@ -60,7 +60,7 @@ public class Cartao {
         this.id = id;
         this.emitidoEm = emitidoEm;
         this.titular = titular;
-        this.bloqueios.addAll(bloqueios.stream().map(bloqueioResponse -> bloqueioResponse.toModel()).collect(Collectors.toSet()));
+        this.bloqueios.addAll(bloqueios.stream().map(BloqueioResponse::toModel).collect(Collectors.toSet()));
         this.avisos.addAll(avisos.stream().map(AvisosResponse::toModel).collect(Collectors.toSet()));
         this.carteiras.addAll(carteiras.stream().map(CarteiraDigitalResponse::toModel).collect(Collectors.toSet()));
         this.parcelas.addAll(parcelas.stream().map(ParcelaResponse::toModel).collect(Collectors.toSet()));
