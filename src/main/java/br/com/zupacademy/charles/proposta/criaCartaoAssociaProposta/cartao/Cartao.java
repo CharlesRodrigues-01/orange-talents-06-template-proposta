@@ -1,6 +1,5 @@
 package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao;
 
-import br.com.zupacademy.charles.proposta.cadastroBiometria.Biometria;
 import br.com.zupacademy.charles.proposta.cadastroNovaProposta.NovaProposta;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.avisos.Avisos;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.avisos.AvisosResponse;

@@ -1,16 +1,21 @@
 package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio;
 
+import br.com.zupacademy.charles.proposta.cadastroNovaProposta.NovaProposta;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.Cartao;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.ClienteBloqueio;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 public class Bloqueio {
 
+    @Transient
+    private final Logger logger = LoggerFactory.getLogger(NovaProposta.class);
     @Id
     private String id;
     private LocalDateTime bloqueadoEm;
@@ -19,9 +24,12 @@ public class Bloqueio {
     @ManyToOne
     @JsonIgnore
     private Cartao cartao;
+    @OneToOne(cascade = CascadeType.MERGE)
+    private ClienteBloqueio clienteBloqueio;
 
     @Deprecated
-    public Bloqueio() {}
+    public Bloqueio() {
+    }
 
     public Bloqueio(String id, LocalDateTime bloqueadoEm, String sistemaResponsavel, boolean ativo) {
         this.id = id;
@@ -30,13 +38,37 @@ public class Bloqueio {
         this.ativo = ativo;
     }
 
-    public String getId() { return id; }
+    public Bloqueio(boolean ativo, Cartao cartao, ClienteBloqueio clienteBloqueio, String sistemaResponsavel) {
+        this.ativo = ativo;
+        this.cartao = cartao;
+        this.clienteBloqueio = clienteBloqueio;
+        this.bloqueadoEm = LocalDateTime.now();
+        this.id = UUID.randomUUID().toString();
+        this.sistemaResponsavel = sistemaResponsavel;
+    }
 
-    public LocalDateTime getBloqueadoEm() { return bloqueadoEm; }
+   public String getId() {
+        return id;
+    }
 
-    public String getSistemaResponsavel() { return sistemaResponsavel; }
+    public LocalDateTime getBloqueadoEm() {
+        return bloqueadoEm;
+    }
 
-    public boolean isAtivo() { return ativo; }
+    public String getSistemaResponsavel() {
+        return sistemaResponsavel;
+    }
 
-    public Cartao getCartao() { return cartao; }
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public Cartao getCartao() {
+        return cartao;
+    }
+
+    public ClienteBloqueio getClienteBloqueio() {
+        return clienteBloqueio;
+    }
+
 }
