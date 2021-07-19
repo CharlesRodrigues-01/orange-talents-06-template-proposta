@@ -2,14 +2,14 @@ package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente;
 
 import javax.validation.constraints.NotBlank;
 
-public class ClienteBloqueioRequest {
+public class ClienteRequest {
 
     @NotBlank
     private String ipCliente;
     @NotBlank
     private String userAgent;
 
-    public ClienteBloqueioRequest(String ipCliente, String userAgent) {
+    public ClienteRequest(String ipCliente, String userAgent) {
         this.ipCliente = ipCliente;
         this.userAgent = userAgent;
     }
@@ -18,8 +18,8 @@ public class ClienteBloqueioRequest {
 
     public String getUserAgent() { return userAgent; }
 
-    public ClienteBloqueio toModel(){
-        return new ClienteBloqueio(this.ipCliente, this.userAgent);
+    public Cliente toModel(){
+        return new Cliente(this.ipCliente, this.userAgent);
     }
 
 }

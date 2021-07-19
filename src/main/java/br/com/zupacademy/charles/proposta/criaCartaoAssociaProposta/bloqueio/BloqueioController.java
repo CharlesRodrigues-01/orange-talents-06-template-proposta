@@ -1,7 +1,7 @@
 package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio;
 
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.CartaoRepository;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.ClienteBloqueioRequest;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.ClienteRequest;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils.BloqueiaCartao;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils.CartaoRequest;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils.StatusCartao;
@@ -38,7 +38,7 @@ public class BloqueioController {
                                             HttpServletRequest request) {
 
         String ipCliente = request.getRemoteAddr();
-        ClienteBloqueioRequest clienteBloqueioRequest = new ClienteBloqueioRequest(ipCliente, agent);
+        ClienteRequest clienteRequest = new ClienteRequest(ipCliente, agent);
         BloqueioRequest bloqueioRequest = new BloqueioRequest("Porposta");
         logger.info("Buscando cartão e bloqueios");
         boolean cartaoExiste = cartaoRepository.existsById(idCartao);
@@ -51,7 +51,7 @@ public class BloqueioController {
             StatusBloqueioResponse statusBloqueioResponse = statuscartaoResource.solicitaBloqueio(idCartao,
                     bloqueioRequest);
 
-            bloqueiaCartao.insereBloqueio(idCartao, statusBloqueioResponse, clienteBloqueioRequest,bloqueioRequest);
+            bloqueiaCartao.insereBloqueio(idCartao, statusBloqueioResponse, clienteRequest,bloqueioRequest);
 
             return ResponseEntity.ok().build();
         }

@@ -1,7 +1,7 @@
 package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio;
 
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.Cartao;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.ClienteBloqueioRequest;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.ClienteRequest;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils.CartaoRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +27,9 @@ public class StatusBloqueioResponse {
         }
     }
 
-    public Bloqueio atualizaSituacaoBloqueio(Cartao cartao, ClienteBloqueioRequest clienteBloqueioRequest,
+    public Bloqueio atualizaSituacaoBloqueio(Cartao cartao, ClienteRequest clienteRequest,
                                              BloqueioRequest sistemaResponsavel) {
         logger.info("Convertendo para model ");
-        return new Bloqueio(this.cartaoAtivo, cartao, clienteBloqueioRequest.toModel(), sistemaResponsavel.getSistemaResponsavel());
+        return new Bloqueio(this.cartaoAtivo, cartao, clienteRequest.toModel(), sistemaResponsavel.getSistemaResponsavel());
     }
 }

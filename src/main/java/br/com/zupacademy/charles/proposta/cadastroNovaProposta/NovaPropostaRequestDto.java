@@ -1,6 +1,5 @@
 package br.com.zupacademy.charles.proposta.cadastroNovaProposta;
 
-import br.com.zupacademy.charles.proposta.annotations.UniqueValue;
 import br.com.zupacademy.charles.proposta.validation.ClientGroupSequenceProvider;
 import br.com.zupacademy.charles.proposta.validation.Cnpj;
 import br.com.zupacademy.charles.proposta.validation.Cpf;

@@ -1,9 +1,7 @@
 package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.avisos;
 
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.avisos.Avisos;
-
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class AvisosResponse {
 
@@ -22,6 +20,6 @@ public class AvisosResponse {
     public String getDestino() { return destino; }
 
     public Avisos toModel(){
-        return new Avisos(LocalDateTime.parse(this.validoAte), this.destino);
+        return new Avisos(LocalDate.parse(this.validoAte), this.destino);
     }
 }

@@ -2,7 +2,7 @@ package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio;
 
 import br.com.zupacademy.charles.proposta.cadastroNovaProposta.NovaProposta;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.Cartao;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.ClienteBloqueio;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.Cliente;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +25,7 @@ public class Bloqueio {
     @JsonIgnore
     private Cartao cartao;
     @OneToOne(cascade = CascadeType.MERGE)
-    private ClienteBloqueio clienteBloqueio;
+    private Cliente cliente;
 
     @Deprecated
     public Bloqueio() {
@@ -38,10 +38,10 @@ public class Bloqueio {
         this.ativo = ativo;
     }
 
-    public Bloqueio(boolean ativo, Cartao cartao, ClienteBloqueio clienteBloqueio, String sistemaResponsavel) {
+    public Bloqueio(boolean ativo, Cartao cartao, Cliente cliente, String sistemaResponsavel) {
         this.ativo = ativo;
         this.cartao = cartao;
-        this.clienteBloqueio = clienteBloqueio;
+        this.cliente = cliente;
         this.bloqueadoEm = LocalDateTime.now();
         this.id = UUID.randomUUID().toString();
         this.sistemaResponsavel = sistemaResponsavel;
@@ -67,8 +67,8 @@ public class Bloqueio {
         return cartao;
     }
 
-    public ClienteBloqueio getClienteBloqueio() {
-        return clienteBloqueio;
+    public Cliente getCliente() {
+        return cliente;
     }
 
 }

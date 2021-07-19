@@ -6,7 +6,7 @@ import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio.Blo
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio.StatusBloqueioResponse;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.Cartao;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.CartaoRepository;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.ClienteBloqueioRequest;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.ClienteRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -29,7 +29,7 @@ public class BloqueiaCartao {
 
     @Transactional
     public void insereBloqueio(String id, StatusBloqueioResponse statusBloqueioResponse,
-                                 ClienteBloqueioRequest clienteBloqueioRequest, BloqueioRequest bloqueioRequest) {
+                               ClienteRequest clienteRequest, BloqueioRequest bloqueioRequest) {
         logger.info("Preparando para salvar bloqueio, buscando cartão");
 
         Optional<Cartao> cartao = cartaoRepository.findById(id);
@@ -38,7 +38,7 @@ public class BloqueiaCartao {
         if (!statusBloqueioResponse.isCartaoAtivo()) {
             logger.info("Cartão bloqueado salvando bloqueio");
 
-            Bloqueio bloqueio = statusBloqueioResponse.atualizaSituacaoBloqueio(cartao.get(), clienteBloqueioRequest,
+            Bloqueio bloqueio = statusBloqueioResponse.atualizaSituacaoBloqueio(cartao.get(), clienteRequest,
                                                                                 bloqueioRequest);
             logger.info("Gerando bloqueio");
 
