@@ -15,7 +15,7 @@ import java.util.UUID;
 public class Bloqueio {
 
     @Transient
-    private final Logger logger = LoggerFactory.getLogger(NovaProposta.class);
+    private final Logger logger = LoggerFactory.getLogger(Bloqueio.class);
     @Id
     private String id;
     private LocalDateTime bloqueadoEm;

@@ -2,13 +2,12 @@ package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio;
 
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.Cartao;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.ClienteRequest;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils.CartaoRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class StatusBloqueioResponse {
 
-    private final Logger logger = LoggerFactory.getLogger(CartaoRequest.class);
+    private final Logger logger = LoggerFactory.getLogger(StatusBloqueioResponse.class);
 
     private String resultado;
     private boolean cartaoAtivo = true;

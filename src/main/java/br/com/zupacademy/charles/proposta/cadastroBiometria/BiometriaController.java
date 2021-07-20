@@ -1,25 +1,21 @@
 package br.com.zupacademy.charles.proposta.cadastroBiometria;
 
-import br.com.zupacademy.charles.proposta.cadastroNovaProposta.NovaPropostaController;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.Cartao;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.CartaoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/biometria")
 public class BiometriaController {
 
-    private final Logger logger = LoggerFactory.getLogger(NovaPropostaController.class);
+    private final Logger logger = LoggerFactory.getLogger(BiometriaController.class);
     private CartaoRepository cartaoRepository;
       private BiometriaRepository biometriaRepository;
 

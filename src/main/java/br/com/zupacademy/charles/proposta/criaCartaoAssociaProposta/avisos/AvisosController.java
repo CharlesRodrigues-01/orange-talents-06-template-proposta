@@ -2,8 +2,8 @@ package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.avisos;
 
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.Cartao;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.CartaoRepository;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.Cliente;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils.CartaoRequest;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.ClienteRequest;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils.StatusCartao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -18,15 +18,18 @@ import java.util.Optional;
 @RequestMapping("/avisos")
 public class AvisosController {
 
-    private final Logger logger = LoggerFactory.getLogger(CartaoRequest.class);
+    private final Logger logger = LoggerFactory.getLogger(AvisosController.class);
 
     private CartaoRepository cartaoRepository;
     private AvisosRepository avisosRepository;
+    private StatusCartao statuscartaoResource;
 
     public AvisosController(CartaoRepository cartaoRepository,
-                            AvisosRepository avisosRepository){
+                            AvisosRepository avisosRepository,
+                            StatusCartao statuscartaoResource){
         this.cartaoRepository = cartaoRepository;
         this.avisosRepository = avisosRepository;
+        this.statuscartaoResource = statuscartaoResource;
     }
 
     @PostMapping("/cartao/{id}")
@@ -35,21 +38,29 @@ public class AvisosController {
                                              @RequestHeader("user-agent") String agent,
                                              HttpServletRequest request) {
 
-        Optional<Cartao> cartao = cartaoRepository.findById(idCartao);
         String ipCliente = request.getRemoteAddr();
-        Cliente cliente = new Cliente(ipCliente, agent);
+        ClienteRequest clienteRequest = new ClienteRequest(ipCliente, agent);
 
-        boolean cartaoExiste = cartaoRepository.existsById(idCartao);
-        logger.info("Buscando cartão e bloqueios");
+        logger.info("Buscando cartão");
+        Optional<Cartao> cartao = cartaoRepository.findById(idCartao);
 
-        if (cartaoExiste) {
+        if (cartao.isPresent()) {
+            logger.info("Cartão existe");
 
-            Avisos avisos = avisosRequest.toModel(cartao.get(), cliente);
-            avisosRepository.save(avisos);
-            return ResponseEntity.ok().build();
+            ResultadoAvisoResponse resultadoAvisoResponse = statuscartaoResource.avisaViagem(idCartao, avisosRequest);
+            if (resultadoAvisoResponse.getResultado().equals("CRIADO")) {
+                logger.info("Aviso criado pelo sistema, salvando no banco de dados");
+
+                Avisos avisos = avisosRequest.toModel(cartao.get(), clienteRequest);
+                avisosRepository.save(avisos);
+                logger.info("Aviso salvo!");
+                return ResponseEntity.ok().build();
+            }
+            logger.warn("Ops! O sistema externo não criou o aviso!");
+            return ResponseEntity.badRequest().build();
+
         }
-        logger.warn("Este cartão não existe " + idCartao);
-
+        logger.warn("Este cartão não existe ");
         return ResponseEntity.notFound().build();
     }
 }

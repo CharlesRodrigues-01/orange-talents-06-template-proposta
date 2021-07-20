@@ -2,8 +2,6 @@ package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio;
 
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.CartaoRepository;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.ClienteRequest;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils.BloqueiaCartao;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils.CartaoRequest;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils.StatusCartao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +15,7 @@ import java.util.Optional;
 @RequestMapping("/bloqueio")
 public class BloqueioController {
 
-    private final Logger logger = LoggerFactory.getLogger(CartaoRequest.class);
+    private final Logger logger = LoggerFactory.getLogger(BloqueioController.class);
 
     private CartaoRepository cartaoRepository;
     private StatusCartao statuscartaoResource;

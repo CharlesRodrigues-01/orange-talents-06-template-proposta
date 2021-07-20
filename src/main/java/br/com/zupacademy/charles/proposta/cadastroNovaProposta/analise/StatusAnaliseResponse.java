@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 public class StatusAnaliseResponse {
 
-    private final Logger logger = LoggerFactory.getLogger(StatusAnaliseRequest.class);
+    private final Logger logger = LoggerFactory.getLogger(StatusAnaliseResponse.class);
 
     private String idProposta;
     @NotBlank

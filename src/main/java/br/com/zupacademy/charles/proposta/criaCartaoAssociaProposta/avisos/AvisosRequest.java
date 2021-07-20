@@ -1,8 +1,7 @@
 package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.avisos;
 
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.Cartao;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.Cliente;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils.CartaoRequest;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.ClienteRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +12,7 @@ import java.time.LocalDate;
 
 public class AvisosRequest {
 
-    private final Logger logger = LoggerFactory.getLogger(CartaoRequest.class);
+    private final Logger logger = LoggerFactory.getLogger(AvisosRequest.class);
 
     @NotBlank
     private String destino;
@@ -34,9 +33,9 @@ public class AvisosRequest {
         return validoAte;
     }
 
-    public Avisos toModel(Cartao cartao, Cliente cliente) {
-        logger.info("Convertendo para model ");
+    public Avisos toModel(Cartao cartao, ClienteRequest cliente) {
+        logger.info("Convertendo AvisosRequest para model ");
 
-        return new Avisos(this.validoAte, this.destino, cliente, cartao);
+        return new Avisos(this.validoAte, this.destino, cliente.toModel(), cartao);
     }
 }

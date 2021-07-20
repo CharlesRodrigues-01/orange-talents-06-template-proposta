@@ -1,9 +1,5 @@
-package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils;
+package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio;
 
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio.Bloqueio;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio.BloqueioRepository;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio.BloqueioRequest;
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio.StatusBloqueioResponse;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.Cartao;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.CartaoRepository;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cliente.ClienteRequest;
@@ -17,7 +13,7 @@ import java.util.Optional;
 @Service
 public class BloqueiaCartao {
 
-    private final Logger logger = LoggerFactory.getLogger(CartaoRequest.class);
+    private final Logger logger = LoggerFactory.getLogger(BloqueiaCartao.class);
 
     private BloqueioRepository bloqueioRepository;
     private CartaoRepository cartaoRepository;
