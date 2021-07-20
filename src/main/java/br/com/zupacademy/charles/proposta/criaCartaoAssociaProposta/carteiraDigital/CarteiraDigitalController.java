@@ -1,6 +1,5 @@
 package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.carteiraDigital;
 
-import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.avisos.ResultadoAvisoResponse;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.Cartao;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.CartaoRepository;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.utils.StatusCartao;
@@ -38,7 +37,7 @@ public class CarteiraDigitalController {
                                                @RequestBody @Valid CarteiraDigitalRequest request,
                                                UriComponentsBuilder uriBuilder) {
 
-        logger.warn("Buscando cartão e carteira");
+        logger.info("Buscando cartão e carteira");
         Optional<Cartao> cartao = cartaoRepository.findById(idCartao);
         Optional<CarteiraDigital> carteiraexiste = carteiraDigitalRepository.findByCarteiraAtiva(idCartao, request.getCarteira());
 

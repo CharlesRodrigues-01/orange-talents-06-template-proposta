@@ -2,18 +2,22 @@ package br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.carteiraDig
 
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.Cartao;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class CarteiraDigitalRequest {
 
     @NotBlank
     @Email
     private String email;
-    @NotBlank
-    private String carteira;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private TipoCarteira carteira;
 
-    public CarteiraDigitalRequest(@NotBlank @Email String email, @NotBlank String carteira) {
+    public CarteiraDigitalRequest(@NotBlank @Email String email, @NotBlank TipoCarteira carteira) {
         this.email = email;
         this.carteira = carteira;
     }
@@ -22,7 +26,7 @@ public class CarteiraDigitalRequest {
         return email;
     }
 
-    public String getCarteira() {
+    public TipoCarteira getCarteira() {
         return carteira;
     }
 

@@ -11,5 +11,5 @@ public interface CarteiraDigitalRepository extends JpaRepository<CarteiraDigital
 
     @Query("SELECT f FROM CarteiraDigital f WHERE f.cartao.id = :idCartao "
             + "AND f.emissor = :carteira")
-    Optional<CarteiraDigital> findByCarteiraAtiva(String idCartao, String carteira);
+    Optional<CarteiraDigital> findByCarteiraAtiva(String idCartao, TipoCarteira carteira);
 }
