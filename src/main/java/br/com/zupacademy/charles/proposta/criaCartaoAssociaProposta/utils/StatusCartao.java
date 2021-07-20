@@ -6,6 +6,8 @@ import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.avisos.Resul
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio.BloqueioRequest;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.bloqueio.StatusBloqueioResponse;
 import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.cartao.CartaoResponse;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.carteiraDigital.CarteiraDigitalRequest;
+import br.com.zupacademy.charles.proposta.criaCartaoAssociaProposta.carteiraDigital.ResultadoAssociacao;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +23,8 @@ public interface StatusCartao {
 
     @RequestMapping(method = RequestMethod.POST, value = "/api/cartoes/{id}/avisos", consumes = "application/json", produces = "application/json")
     ResultadoAvisoResponse avisaViagem(@PathVariable("id") String id, AvisosRequest request);
+
+    @RequestMapping(method = RequestMethod.POST, value = "/api/cartoes/{id}/carteiras", consumes = "application/json", produces = "application/json")
+    ResultadoAssociacao solicitaAssociacao(@PathVariable("id") String id, CarteiraDigitalRequest request);
 
 }

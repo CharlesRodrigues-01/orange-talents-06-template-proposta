@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 public class CarteiraDigital {
@@ -28,6 +29,14 @@ public class CarteiraDigital {
         this.email = email;
         this.associadaEm = associadaEm;
         this.emissor = emissor;
+    }
+
+    public CarteiraDigital(String email, String carteira, Cartao cartao) {
+        this.id = UUID.randomUUID().toString();
+        this.email = email;
+        this.associadaEm = LocalDateTime.now();
+        this.emissor = carteira;
+        this.cartao = cartao;
     }
 
     public String getId() { return id; }
