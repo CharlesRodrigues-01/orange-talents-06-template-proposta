@@ -76,7 +76,7 @@ public class CartaoResponse {
     public String getIdProposta() { return idProposta; }
 
     public Cartao toModel() {
-        logger.info("Inicio da converção de CartaoResponso para Model");
+        logger.info("Inicio da converção de CartaoResponse para Model");
 
         return new Cartao(this.id, LocalDateTime.parse(this.emitidoEm, ISO_LOCAL_DATE_TIME), this.titular,
                 this.bloqueios, this.avisos, this.carteiras, this.parcelas,
